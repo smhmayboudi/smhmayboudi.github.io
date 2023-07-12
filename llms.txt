@@ -1,0 +1,14 @@
+# SDX with SMH
+
+> Personal website of Hossein Mayboudi, a senior backend engineer in Tehran, Iran, focused on backend systems, distributed services, trading platforms, and reliable APIs.
+
+The site provides an overview of software development services, engineering experience, technical skills, education, and contact information.
+
+## Pages
+
+- [Home](https://sdxwithsmh.ir/): Software development services and an overview of the site's focus.
+- [About Hossein Mayboudi](https://sdxwithsmh.ir/about-me.html): Professional experience, background, skills, and contact details.
+
+## Contact
+
+Use the contact information and links on the [about page](https://sdxwithsmh.ir/about-me.html) for professional inquiries.

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#e3e3ea" />
+  <path d="M790 0h410v630H570z" fill="#d95555" />
+  <circle cx="965" cy="315" r="190" fill="#0d0d0d" />
+  <circle cx="965" cy="315" r="166" fill="#e3e3ea" />
+  <text x="965" y="355" fill="#d95555" font-family="Arial, Helvetica, sans-serif" font-size="120" font-weight="700" text-anchor="middle">SDX</text>
+  <text x="965" y="410" fill="#0d0d0d" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" letter-spacing="5">WITH SMH</text>
+  <text x="82" y="150" fill="#d95555" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="6">SDX WITH SMH</text>
+  <text x="78" y="260" fill="#0d0d0d" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700">Software</text>
+  <text x="78" y="336" fill="#0d0d0d" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700">Development</text>
+  <text x="78" y="412" fill="#0d0d0d" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700">Experience</text>
+  <text x="82" y="540" fill="#33333a" font-family="Arial, Helvetica, sans-serif" font-size="23">Hossein Mayboudi · Senior Backend Engineer</text>
+  <text x="82" y="590" fill="#55555d" font-family="Arial, Helvetica, sans-serif" font-size="22">sdxwithsmh.ir</text>
+</svg>
