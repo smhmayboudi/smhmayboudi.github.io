@@ -1,0 +1,69 @@
+.atag {
+    text-decoration: none;
+    color: black;
+}
+
+.text-primary1 {
+    color: #D95757;
+}
+
+.bg-primary1 {
+    background-color: #D95757;
+}
+
+.bg-secondary1 {
+    background-color: #E3E3EA;
+}
+
+.btn-second {
+    background-color: #D95757;
+    color: black;
+}
+
+.btn-second:hover {
+    background-color: #cd4141;
+    color: black;
+}
+
+.table-primary1 {
+    --bs-table-color: #000;
+    --bs-table-bg: #E3E3EA;
+    --bs-table-border-color: #E3E3EA;
+    --bs-table-striped-bg: #E3E3EA;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #E3E3EA;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #E3E3EA;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color);
+}
+
+.fooetr h3 {
+    font-size: 13rem;
+}
+
+.Text-1 {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.display {
+    background-color: white;
+}
+
+.display1 {
+    background-color: white;
+}
+
+.play1:hover {
+    .display {
+        background-color: #0F0F0F;
+        color: white
+    }
+
+    .display1 {
+        background-color: #0F0F0F;
+        color: #cd4141;
+    }
+}
