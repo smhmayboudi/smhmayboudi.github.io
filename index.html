@@ -1,248 +1,355 @@
 <!doctype html>
-<html lang="en" class="h-100" data-bs-theme="auto">
-  <head>
-    <script src="docs/5.3/assets/js/color-modes.js"></script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Hossein Mayboudi" />
-    <meta name="author" content="Hossein Mayboudi" />
-    <meta name="generator" content="Hossein Mayboudi" />
-    <title>Hossein Mayboudi</title>
-    <link rel="canonical" href="https://smhmayboudi.github.io/" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
-    />
-    <link href="docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Favicons -->
-    <link
-      rel="apple-touch-icon"
-      href="docs/5.3/assets/img/favicons/apple-touch-icon.png"
-      sizes="180x180"
-    />
-    <link
-      rel="icon"
-      href="docs/5.3/assets/img/favicons/favicon-32x32.png"
-      sizes="32x32"
-      type="image/png"
-    />
-    <link
-      rel="icon"
-      href="docs/5.3/assets/img/favicons/favicon-16x16.png"
-      sizes="16x16"
-      type="image/png"
-    />
-    <link rel="manifest" href="docs/5.3/assets/img/favicons/manifest.json" />
-    <link
-      rel="mask-icon"
-      href="docs/5.3/assets/img/favicons/safari-pinned-tab.svg"
-      color="#712cf9"
-    />
-    <link rel="icon" href="docs/5.3/assets/img/favicons/favicon.ico" />
-    <meta name="theme-color" content="#712cf9" />
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, 0.1);
-        border: solid rgba(0, 0, 0, 0.15);
-        border-width: 1px 0;
-        box-shadow:
-          inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
-      }
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-      .bi {
-        vertical-align: -0.125em;
-        fill: currentColor;
-      }
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
-      .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet" />
-  </head>
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != "dataLayer" ? "&l=" + l : "";
-      j.async = true;
-      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "GTM-WN6QL9M3");
-  </script>
-  <!-- End Google Tag Manager -->
-  <body class="d-flex h-100 text-center text-bg-dark">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WN6QL9M3"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path
-          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
-        />
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path
-          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
-        />
-        <path
-          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
-        />
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path
-          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
-        />
-      </symbol>
-    </svg>
-    <!--
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button aria-exp ande d="fals e"aria-label="Toggle theme (auto)"class=" btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"data-bs-toggle="dropdown"id="bd-theme"type="button">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-          <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul aria-labelledby="bd-theme-text" class="dropdown-menu dropdown-menu-end shadow">
-        <li>
-          <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" type="button">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-              <use href="#sun-fill"></use>
-            </svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+  <title>smh-site</title>
+</head>
+
+<body>
+  <header class="bg-secondary1">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html"><img class="rounded" src="./images/Logo.webp" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-        </li>
-        <li>
-          <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" type="button">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-              <use href="#moon-stars-fill"></use>
-            </svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button aria-pressed="true" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" type="button">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-              <use href="#circle-half"></use>
-            </svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-    -->
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <div>
-          <!--
-          <h3 class="float-md-start mb-0">Cover</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a aria-current="page" class="nav-link fw-bold py-1 px-0 active" href="#">Home</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
-          </nav>
-          -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item mx-2">
+                <a class="nav-link active" aria-current="page" href="#services">My services</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#technology">Technology</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#contactme">Contact ME</a>
+              </li>
+              <li class="nav-item ms-2">
+                <a class="nav-link" href="./about-me.html">About ME</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </header>
-      <main class="px-3">
-        <h1>Hossein Mayboudi</h1>
-        <p class="lead">
-          Software Engineers in Go | TypeScript, Backend | FullStack, Docker |
-          Containerization, Bare Metal | Cloud Automation, CI | CD Principle
-          Follower
-        </p>
-        <!--
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
-        </p>
-        -->
-      </main>
-      <footer class="mt-auto text-white-50">
-        <p>
-          <a href="https://github.com/smhmayboudi" class="text-white">GITHUB</a>
-          <a href="https://www.linkedin.com/in/smhmayboudi/" class="text-white"
-            >LINKEDIN</a
-          >
-          <a href="https://x.com/smhmayboudi" class="text-white">X</a>
-          <a href="https://smhmayboudi.t.me" class="text-white">TELEGRAM</a>
-        </p>
-      </footer>
+      </nav>
     </div>
-    <script src="docs/5.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  </header>
+  <!-- slider -->
+  <section class="slider py-5 " style="background-image: url(./images/slider.webp);">
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-lg-7">
+          <h1 class="fw-bold text-white my-5 display-5 lh-base">We make a good Software Development Experience for
+            any&nbsp;<span class="text-primary1">Besiness</span>
+          </h1>
+          <p class="text-white my-5 fs-5 Text-1">CI/CD is an agile methodology; it facilitates the development team in
+            achieving
+            the business requirements, best code quality, and security because the steps of deployment are automated.
+          </p>
+          <div class="row mt-4"><a class="atag btn btn-second rounded-pill  my-5 fs-4" href="#contactme">Contact ME</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Working with us -->
+  <section class="bg-secondary1">
+    <div class="container">
+      <div class="row pt-5">
+        <h2 class="pt-5 fw-bold fs-1">Working with us is wonderful</h4>
+          <p class="text-primary1 pt-2 pb-5 fs-1">Because we believe</p>
+          <ul class="list-unstyled">
+            <li class="fs-3"><i class="bi bi-check2-circle me-3 text-primary1 fs-2"></i>Works can be done simply</li>
+            <li class="fs-3"><i class="bi bi-check2-circle me-3 text-primary1 fs-2"></i>Works can be done automatically</li>
+            <li class="fs-3"><i class="bi bi-check2-circle me-3 text-primary1 fs-2"></i>Works can be done routinely</li>
+            <li class="fs-3"><i class="bi bi-check2-circle me-3 text-primary1 fs-2"></i>Works can be done in the shortest
+              time</li>
+            <li class="fs-3"><i class="bi bi-check2-circle me-3 text-primary1 fs-2"></i>Works can be done quickly</li>
+            <li class="fs-3"><i class="bi bi-check2-circle me-3 text-primary1 fs-2"></i>Works can be done faster</li>
+          </ul>
+      </div>
+      <div class="row pb-5">
+        <p class="text-center fw-bold fs-1 py-5">So you can focus on your core business</p>
+      </div>
+    </div>
+  </section>
+  <!-- CI/CD -->
+  <section class="bg-dark">
+    <div class="container">
+      <div class="row py-5">
+        <p class="text-white pt-5 fw-bold fs-1">We are with you in&nbsp;<span
+            class="text-primary1">CI/CD</span>&nbsp;Software
+          Development Life Cycles (SDLC)</p>
+      </div>
+      <div class="row py-5">
+        <div>
+          <div class="row">
+            <div class="col-5"></div>
+            <div class="col-5"><img class="ps-md-4 img-fluid" src="./images/Dev Logo.webp" alt=""></div>
+            <div class="col-2"></div>
+          </div>
+          <div class="progress my-3" role="progressbar" aria-label="Example 1px high" aria-valuenow="0"
+            aria-valuemin="0" aria-valuemax="100" style="height: 3px">
+            <div class="progress-bar" style="width: 0"></div>
+          </div>
+        </div>
+        <div class="row justify-content-between justify-content-md-evenly  pb-5">
+          <div class="col-1 text-white text-center">
+            <p>01</p>
+            <p>First Contact</p>
+          </div>
+          <div class="col-2 col-md-1 text-white text-center">
+            <p>02</p>
+            <p>Discovery Phase</p>
+          </div>
+          <div class="col-1 text-white text-center">
+            <p>03</p>
+            <p>UI/UX Design</p>
+          </div>
+          <div class="col-2 col-md-1 text-primary1 text-center">
+            <p>04</p>
+            <p>Development Process</p>
+          </div>
+          <div class="col-1 text-primary1 text-center">
+            <p>05</p>
+            <p>Quality Assurance</p>
+          </div>
+          <div class="col-1 text-primary1 text-center">
+            <p>06</p>
+            <p>Delivery</p>
+          </div>
+          <div class="col-1 text-white text-center">
+            <p>07</p>
+            <p>Support & Maintenance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services  -->
+  <section class="bg-secondary1 py-5" id="services">
+    <div class="container">
+      <div class="row">
+        <h3 class="pt-5 fw-bold fs-1">Services</h3>
+        <p class="text-primary1 pt-2 pb-5 fs-1">From concept to completion with CI/CD pipeline</p>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-2 text-center">
+          <p class="fw-bold fs-2">CI</p>
+        </div>
+        <div class="col-10">
+          <table class="table table-borderless table-primary1">
+            <tbody>
+              <tr class="fs-5">
+                <td class="text-danger">01</td>
+                <td>Plan<i class="bi bi-chevron-right text-primary1 fw-bold"></i> Git</td>
+              </tr>
+              <tr class="fs-5">
+                <td class="text-danger">02</td>
+                <td>Code<i class="bi bi-chevron-right text-primary1"></i> Ansible</td>
+              </tr>
+              <tr class="fs-5">
+                <td class="text-danger">03</td>
+                <td>Build<i class="bi bi-chevron-right text-primary1"></i> CloudFormation, Jenkins, Bamboo</td>
+              </tr>
+              <tr class="fs-5">
+                <td class="text-danger">04</td>
+                <td>Test<i class="bi bi-chevron-right text-primary1"></i> GitLab, GitHub</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-2 text-center">
+          <p class="fw-bold fs-2">CD</p>
+        </div>
+        <div class="col-10">
+          <table class="table table-borderless table-primary1">
+            <tbody>
+              <tr class="fs-5">
+                <td class="text-danger">05</td>
+                <td>Release<i class="bi bi-chevron-right text-primary1"></i> Bitbucket CI/CD, Helm</td>
+              </tr>
+              <tr class="fs-5">
+                <td class="text-danger">06</td>
+                <td>Deploy<i class="bi bi-chevron-right text-primary1"></i> Terraform</td>
+              </tr>
+              <tr class="fs-5">
+                <td class="text-danger">07</td>
+                <td>Operate<i class="bi bi-chevron-right text-primary1"></i> Terragrunt, Kubernetes Operators</td>
+              </tr>
+              <tr class="fs-5">
+                <td class="text-danger">08</td>
+                <td>Monitor<i class="bi bi-chevron-right text-primary1"></i> IntelliJ IDEA</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </section>
+  <!-- Technology stack  -->
+  <section class="bg-primary1 py-5" id="technology">
+    <div class="container">
+      <div class="row">
+        <h3 class="pt-5 fw-bold fs-1 text-white">Technology Stack</h3>
+        <p class="fs-1 pt-2 pb-5">We cover your core stack</p>
+      </div>
+      <div class="row justify-content-center py-5">
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-3 border-end border-bottom py-3 text-center fs-2"><img class="me-2"
+                src="./images/golang.svg" alt=""> golang
+            </div>
+            <div class="col-3 border-end border-bottom py-3 text-center fs-2"><img class="me-2"
+                src="./images/Angular.svg" alt="">Angular
+            </div>
+            <div class="col-3 border-end border-bottom py-3 text-center fs-2"><img class="me-2"
+                src="./images/Android.svg" alt="">Android
+            </div>
+            <div class="col-3 border-bottom py-3 text-center fs-2"><img class="me-2" src="./images/Azure.svg"
+                alt="">Azure</div>
+          </div>
+          <div class="row">
+            <div class="col-3 border-end border-bottom py-4 text-center fs-2"><img class="me-2" src="./images/Aws.svg"
+                alt="">Aws
+            </div>
+            <div class="col-3 border-end border-bottom py-4 text-center fs-2"><img class="me-2" src="./images/React.svg"
+                alt="">React
+            </div>
+            <div class="col-3 border-end border-bottom py-4 text-center fs-2"><img class="me-2" src="./images/iOS.svg"
+                alt="">iOS
+            </div>
+            <div class="col-3 border-bottom py-4 text-center fs-2"><img class="me-2" src="./images/Github.svg"
+                alt="">Github</div>
+          </div>
+          <div class="row">
+            <div class="col-3 border-end  py-4 text-center fs-2"><img class="me-2" src="./images/Docker.svg"
+                alt="">Docker</div>
+            <div class="col-3 border-end  py-4 text-center fs-2"><img class="me-2" src="./images/Nodejs.svg"
+                alt="">Node.js</div>
+            <div class="col-3 border-end  py-4 text-center fs-2"><img class="me-2" src="./images/Gitlab.svg"
+                alt="">Gitlab</div>
+            <div class="col-3  py-4 text-center fs-2"><img class="me-2" src="./images/Rust.svg" alt="">Rust</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Methodologies  -->
+  <section class="bg-secondary1 py-5">
+    <div class="container">
+      <div class="row pb-5">
+        <h3 class="pt-5 fw-bold fs-1">Methodologies</h3>
+        <p class="fs-1 pt-2 pb-5 text-primary1">We work responsive, adaptive, and reliably with your business</p>
+      </div>
+      <div class="row justify-content-center pb-5">
+        <div class="col-2 col-md-4"></div>
+        <div class="col-8 col-md-4">
+          <div class="row">
+            <figure class="figure">
+              <img src="./images/Agile.webp" class="figure-img img-fluid rounded" alt="...">
+              <figcaption class="figure-caption text-center text-dark pt-3 fs-3">Agile with Lean.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="col-2 col-md-4"></div>
+      </div>
+      <div class="row bg-dark text-white rounded-3 text-center p-5">
+        <p class="fs-1 p-3"> want to have a good software development experience (SDX) for your business</p>
+        <div class="row py-5">
+          <div class="col"><a class="atag btn rounded-pill btn-second px-5 fs-4" href="#contactme">Contact ME</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About ME -->
+  <section class="bg-secondary1 py-5">
+    <div class="container">
+      <div class="row">
+        <h3 class="pt-5 fw-bold fs-1">About ME</h3>
+        <p class="fs-1 pt-3 pb-5 text-primary1">Hossein (SMH) Mayboudi</p>
+      </div>
+      <div class="row justify-content-between g-5 pb-5 mb-5">
+        <div class="col-md-7 px-5">
+          <p class="fs-3 pb-5 ">I always develop my world because adopting a
+            new mindset requires a belief that new
+            abilities can be created with effort.
+          </p>
+          <ul class="list-unstyled mb-5">
+            <li class="fs-4 pb-2"><i class="bi bi-check2-circle me-2 text-primary1"></i>Keep It Simple, Stupid (KISS)</li>
+            <li class="fs-4 pb-2"><i class="bi bi-check2-circle me-2 text-primary1"></i>Don't Repeat Yourself (DRY)</li>
+            <li class="fs-4 pb-4"><i class="bi bi-check2-circle me-2 text-primary1"></i>Solid Decisions Making (SDM)
+            </li>
+          </ul>
+          <div class="row mb-5">
+            <div class="col">
+              <a class="atag btn btn-second px-4 rounded-pill fs-4" href="./about-me.html">Read
+                More</a>
+                <div class="m-1" id="contactme"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- start your business  -->
+  <section class="bg-secondary1 py-5">
+  </section>
+  <section class="bg-secondary1 py-5 about position-relative" id="contactme">
+    <div class="container bg-dark rounded-3 text-white text-center position-absolute top-50 start-50 translate-middle">
+      <div class="row g-5">
+        <p class="fs-1 py-5 my-5 text-white">start growing your business with me</p>
+        <div class="row d-inline">
+          <a class="atag px-4 rounded-pill fs-4 bg-primary1 text-dark py-3 d-inline"
+            href="mailto:smhmayboudi@gmail.com">SMHMayboudi@gmail.com</a>
+        </div>
+      </div>
+      <div class="row py-5 justify-content-center mt-4">
+        <p>What happens next?</p>
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-1 justify-content-center"><i class="bi bi-1-circle fs-3 text-primary1"></i></div>
+              <div class="col-11 text-start">Having received and processed your request in google calender.</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-1 justify-content-center"><i class="bi bi-2-circle fs-3 text-primary1"></i></div>
+              <div class="col-11 text-start">We have a meeting with you to discuss the offer and come to an agreement.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-1 justify-content-center"><i class="bi bi-3-circle fs-3 text-primary1"></i></div>
+              <div class="col-11 text-start">We sign a contract and start working on your project as quickly as
+                possible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-primary1 text-white text-center fooetr pt-5">
+    <div class="container pt-5 mt-5">
+      <div class="row pt-3">
+        <p class="py-5 pt-lg-0 my-5"><a class="atag text-white" href="https://surix.ir/">Design by Surix.ir</a></p>
+        <img src="./images/footer.svg" class="mt-5 pt-5" alt="">
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
