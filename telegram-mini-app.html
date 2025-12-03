@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Target Game</title>
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .stats {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-box {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .game-area {
+            width: 100%;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+        }
+        
+        .target {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #FF416C, #FF4B2B);
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
+            border: 3px solid white;
+            transition: transform 0.1s;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .target:hover {
+            transform: scale(1.1);
+        }
+        
+        .target:active {
+            transform: scale(0.95);
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        #startBtn {
+            background: linear-gradient(45deg, #00b09b, #96c93d);
+        }
+        
+        #resetBtn {
+            background: linear-gradient(45deg, #8A2387, #F27121);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .instructions {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .pulse {
+            animation: pulse 0.5s ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Telegram Theme Support */
+        body.dark {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        
+        body.dark .game-area {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        body.dark .stats,
+        body.dark .message {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 500px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .game-area {
+                height: 250px;
+            }
+            
+            .target {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Target Clicker</h1>
+        <p>Click the red targets as fast as you can!</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value" id="score">0</div>
+                <div class="stat-label">SCORE</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value" id="time">30</div>
+                <div class="stat-label">TIME LEFT</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value" id="clicks">0</div>
+                <div class="stat-label">CLICKS</div>
+            </div>
+        </div>
+        
+        <div class="game-area" id="gameArea">
+            <!-- Target will be dynamically placed here -->
+        </div>
+        
+        <div class="controls">
+            <button id="startBtn">▶️ START GAME</button>
+            <button id="resetBtn">🔄 RESET</button>
+        </div>
+        
+        <div class="message" id="message">
+            Click START to begin! You have 30 seconds to click as many targets as possible.
+        </div>
+        
+        <div class="instructions">
+            <strong>How to play:</strong><br>
+            1. Click START to begin<br>
+            2. Click the red targets that appear<br>
+            3. Each target gives you 10 points<br>
+            4. Game ends after 30 seconds<br>
+            <small style="opacity: 0.7; margin-top: 10px; display: block;">
+                Made for Telegram Web App
+            </small>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Telegram Web App
+        const tg = window.Telegram.WebApp;
+        
+        // Game variables
+        let score = 0;
+        let timeLeft = 30;
+        let clicks = 0;
+        let gameActive = false;
+        let gameInterval;
+        let timerInterval;
+        
+        // DOM elements
+        const gameArea = document.getElementById('gameArea');
+        const scoreElement = document.getElementById('score');
+        const timeElement = document.getElementById('time');
+        const clicksElement = document.getElementById('clicks');
+        const startBtn = document.getElementById('startBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const messageElement = document.getElementById('message');
+        
+        // Initialize Telegram Web App
+        function initTelegram() {
+            // Expand the Web App to full screen
+            tg.expand();
+            
+            // Apply Telegram theme
+            if (tg.colorScheme === 'dark') {
+                document.body.classList.add('dark');
+            }
+            
+            // Set up theme change handler
+            tg.onEvent('themeChanged', () => {
+                if (tg.colorScheme === 'dark') {
+                    document.body.classList.add('dark');
+                } else {
+                    document.body.classList.remove('dark');
+                }
+            });
+            
+            // Set up back button
+            tg.BackButton.show();
+            tg.BackButton.onClick(() => {
+                if (gameActive) {
+                    pauseGame();
+                } else {
+                    tg.close();
+                }
+            });
+            
+            // Send initial data to bot
+            tg.ready();
+            
+            // Update bot info
+            updateBotInfo();
+        }
+        
+        // Update bot with game info
+        function updateBotInfo() {
+            if (tg.initDataUnsafe?.user) {
+                const user = tg.initDataUnsafe.user;
+                console.log('Telegram User:', user);
+                
+                // You could display user info if you want
+                // document.getElementById('userInfo').innerHTML = 
+                //     `Playing as: ${user.first_name || 'Player'}`;
+            }
+        }
+        
+        // Create a new target at random position
+        function createTarget() {
+            if (!gameActive) return;
+            
+            // Remove existing target
+            const oldTarget = document.querySelector('.target');
+            if (oldTarget) oldTarget.remove();
+            
+            // Calculate random position within game area
+            const maxX = gameArea.clientWidth - 60;
+            const maxY = gameArea.clientHeight - 60;
+            
+            const x = Math.floor(Math.random() * maxX);
+            const y = Math.floor(Math.random() * maxY);
+            
+            // Create new target
+            const target = document.createElement('div');
+            target.className = 'target';
+            target.style.left = `${x}px`;
+            target.style.top = `${y}px`;
+            
+            // Add click event
+            target.addEventListener('click', handleTargetClick);
+            target.addEventListener('touchstart', handleTargetClick, { passive: true });
+            
+            gameArea.appendChild(target);
+        }
+        
+        // Handle target click
+        function handleTargetClick(e) {
+            e.preventDefault();
+            if (!gameActive) return;
+            
+            clicks++;
+            score += 10;
+            
+            // Update displays
+            scoreElement.textContent = score;
+            clicksElement.textContent = clicks;
+            
+            // Add pulse animation to score
+            scoreElement.classList.add('pulse');
+            setTimeout(() => scoreElement.classList.remove('pulse'), 500);
+            
+            // Create new target
+            createTarget();
+            
+            // Send haptic feedback
+            try {
+                tg.HapticFeedback.impactOccurred('light');
+            } catch (e) {
+                console.log('Haptic feedback not available');
+            }
+        }
+        
+        // Start the game
+        function startGame() {
+            if (gameActive) return;
+            
+            gameActive = true;
+            score = 0;
+            clicks = 0;
+            timeLeft = 30;
+            
+            // Update displays
+            scoreElement.textContent = score;
+            clicksElement.textContent = clicks;
+            timeElement.textContent = timeLeft;
+            messageElement.textContent = 'Game started! Click the red targets!';
+            
+            // Start game loop
+            createTarget();
+            gameInterval = setInterval(createTarget, 1000);
+            
+            // Start countdown timer
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timeElement.textContent = timeLeft;
+                
+                if (timeLeft <= 10) {
+                    timeElement.style.color = '#FF416C';
+                }
+                
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+            
+            // Update button
+            startBtn.textContent = '⏸️ PAUSE';
+            startBtn.style.background = 'linear-gradient(45deg, #FF416C, #FF4B2B)';
+            
+            // Update back button text
+            tg.BackButton.setText('Pause Game');
+        }
+        
+        // Pause the game
+        function pauseGame() {
+            if (!gameActive) return;
+            
+            gameActive = false;
+            clearInterval(gameInterval);
+            clearInterval(timerInterval);
+            
+            messageElement.textContent = 'Game paused. Click START to resume.';
+            startBtn.textContent = '▶️ RESUME';
+            startBtn.style.background = 'linear-gradient(45deg, #00b09b, #96c93d)';
+            
+            // Update back button text
+            tg.BackButton.setText('Close Game');
+        }
+        
+        // End the game
+        function endGame() {
+            gameActive = false;
+            clearInterval(gameInterval);
+            clearInterval(timerInterval);
+            
+            // Remove target
+            const target = document.querySelector('.target');
+            if (target) target.remove();
+            
+            // Show results
+            const accuracy = clicks > 0 ? Math.round((score / (clicks * 10)) * 100) : 0;
+            messageElement.innerHTML = `
+                <strong>Game Over!</strong><br>
+                Final Score: <strong>${score}</strong><br>
+                Targets Clicked: <strong>${clicks}</strong><br>
+                Accuracy: <strong>${accuracy}%</strong>
+            `;
+            
+            startBtn.textContent = '▶️ PLAY AGAIN';
+            startBtn.style.background = 'linear-gradient(45deg, #00b09b, #96c93d)';
+            
+            // Reset time color
+            timeElement.style.color = '#FFD700';
+            
+            // Update back button text
+            tg.BackButton.setText('Close Game');
+            
+            // Send final score to Telegram bot
+            sendScoreToBot(score, clicks, accuracy);
+        }
+        
+        // Reset the game
+        function resetGame() {
+            gameActive = false;
+            clearInterval(gameInterval);
+            clearInterval(timerInterval);
+            
+            score = 0;
+            clicks = 0;
+            timeLeft = 30;
+            
+            // Update displays
+            scoreElement.textContent = score;
+            clicksElement.textContent = clicks;
+            timeElement.textContent = timeLeft;
+            timeElement.style.color = '#FFD700';
+            
+            // Remove target
+            const target = document.querySelector('.target');
+            if (target) target.remove();
+            
+            messageElement.textContent = 'Click START to begin! You have 30 seconds to click as many targets as possible.';
+            startBtn.textContent = '▶️ START GAME';
+            startBtn.style.background = 'linear-gradient(45deg, #00b09b, #96c93d)';
+            
+            // Update back button text
+            tg.BackButton.setText('Close Game');
+        }
+        
+        // Send score to Telegram bot
+        function sendScoreToBot(score, clicks, accuracy) {
+            try {
+                const data = {
+                    action: 'game_over',
+                    score: score,
+                    clicks: clicks,
+                    accuracy: accuracy,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Send data to bot
+                tg.sendData(JSON.stringify(data));
+                
+                // Also show a notification
+                tg.showAlert(`Game Over! Your score: ${score}`);
+                
+            } catch (e) {
+                console.log('Could not send data to bot:', e);
+            }
+        }
+        
+        // Event listeners
+        startBtn.addEventListener('click', () => {
+            if (gameActive) {
+                pauseGame();
+            } else {
+                startGame();
+            }
+        });
+        
+        resetBtn.addEventListener('click', resetGame);
+        
+        // Initialize the game
+        function initGame() {
+            // Initialize Telegram
+            initTelegram();
+            
+            // Initialize game state
+            resetGame();
+            
+            // Handle visibility change
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && gameActive) {
+                    pauseGame();
+                }
+            });
+            
+            // Prevent context menu on targets
+            gameArea.addEventListener('contextmenu', (e) => {
+                if (e.target.classList.contains('target')) {
+                    e.preventDefault();
+                }
+            });
+        }
+        
+        // Start everything when page loads
+        document.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>
